@@ -3,29 +3,29 @@ language: python
 # distribution to ensure the version of python will run without issue.
 matrix:
   include:
-    ## Trusty Tests
-    #- os: linux
-    #  dist: trusty
-    #  python: "pypy"
-    #- os: linux
-    #  dist: trusty
-    #  python: "2.6"
-    #- os: linux
-    #  dist: trusty
-    #  python: "3.3"
-    #- os: linux
-    #  dist: trusty
-    #  python: "3.4"
-    ## Xenial Tests
-    #- os: linux
-    #  dist: xenial
-    #  python: "2.7"
-    #- os: linux
-    #  dist: xenial
-    #  python: "3.5"
-    #- os: linux
-    #  dist: xenial
-    #  python: "3.6"
+    # Trusty Tests
+    - os: linux
+      dist: trusty
+      python: "pypy"
+    - os: linux
+      dist: trusty
+      python: "2.6"
+    - os: linux
+      dist: trusty
+      python: "3.3"
+    - os: linux
+      dist: trusty
+      python: "3.4"
+    # Xenial Tests
+    - os: linux
+      dist: xenial
+      python: "2.7"
+    - os: linux
+      dist: xenial
+      python: "3.5"
+    - os: linux
+      dist: xenial
+      python: "3.6"
     - os: linux
       dist: xenial
       python: "3.7"
