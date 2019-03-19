@@ -134,6 +134,20 @@ class CertValidatingHTTPSConnection(http_client.HTTPConnection):
                 context.load_verify_locations(self.ca_certs)
             if self.cert_file:
                 context.load_cert_chain(self.cert_file, self.key_file)
+
+            print("self.sock [type, type id]: [%s, %s]" % (
+                type(self.sock), id(type(self.sock))))
+            print("Printing out the sslsocket_class used by our context, "
+                  "compared to the one used by SSLSocket (and wrap_socket).")
+            print("context's sslsocket_class [val, val id]: [%s, %s]" % (
+                context.sslsocket_class, id(context.sslsocket_class)))
+            print("ssl.SSLSocket's sslsocket_class [val, val id]: [%s, %s]" % (
+                ssl.SSLSocket.sslsocket_class,
+                id(ssl.SSLSocket.sslsocket_class)))
+            print("ssl's sslsocket_class [val, val id]: [%s, %s]" % (
+                ssl.sslsocket_class,
+                id(ssl.sslsocket_class)))
+
             self.sock = context.wrap_socket(sock, server_hostname=self.host)
             # Add attributes only set in SSLSocket constructor without context:
             self.sock.keyfile = self.key_file
